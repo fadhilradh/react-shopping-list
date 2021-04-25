@@ -10,15 +10,15 @@ class App extends Component {
    removeItem = (index) => {
       const { items } = this.state;
       this.setState({
-         items: items.filter((character, i) => {
+         items: items.filter((item, i) => {
             return i !== index;
          }),
       });
    };
 
-   handleSubmit = (character) => {
+   handleSubmit = (item) => {
       this.setState({
-         items: [...this.state.items, character],
+         items: [...this.state.items, item],
       });
    };
 

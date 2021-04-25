@@ -1,38 +1,38 @@
 const TableHeader = () => {
-  return (
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-      </tr>
-    </thead>
-  );
+   return (
+      <thead>
+         <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+         </tr>
+      </thead>
+   );
 };
 
 const TableBody = (props) => {
-  const rows = props.itemData.map((row, index) => {
-    return (
-      <tr key={index}>
-        <td>{row.item}</td>
-        <td>{row.quantity}</td>
-        <td>
-          <button onClick={() => props.removeItem(index)}>Delete</button>
-        </td>
-      </tr>
-    );
-  });
-  return <tbody>{rows}</tbody>;
+   const rows = props.itemData.map((row, index) => {
+      return (
+         <tr key={index}>
+            <td>{row.item}</td>
+            <td>{row.quantity}</td>
+            <td>
+               <button onClick={() => props.removeItem(index)}>Delete</button>
+            </td>
+         </tr>
+      );
+   });
+   return <tbody>{rows}</tbody>;
 };
 
 const Table = (props) => {
-  const itemData = props.itemData;
-  const removeItem = props.removeItem;
-  return (
-    <table>
-      <TableHeader />
-      <TableBody itemData={itemData} removeItem={removeItem} />
-    </table>
-  );
+   const { itemData, removeItem } = props;
+
+   return (
+      <table>
+         <TableHeader />
+         <TableBody itemData={itemData} removeItem={removeItem} />
+      </table>
+   );
 };
 
 export default Table;
